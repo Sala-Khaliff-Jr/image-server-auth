@@ -1,5 +1,4 @@
-
-*/__pycache__/
-*/images/
-/project/db.sqllite
-
+__pycache__
+images/*
+db.sqllite
+*.pyc
