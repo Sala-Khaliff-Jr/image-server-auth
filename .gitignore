@@ -1,5 +1,5 @@
 .gitignore
 __pycache__
 images/*
-db.sqllite
+*/db.sqlite
 *.pyc
