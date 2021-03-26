@@ -66,6 +66,7 @@ def signup_post():
     db.session.add(new_user)
     db.session.commit()
 
+    # TODO : Create a serperate function to handle os works
     user_directory = create_size_folder(name, 'original')
     
     if not os.path.exists(user_directory):
