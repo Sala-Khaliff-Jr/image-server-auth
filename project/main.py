@@ -83,3 +83,9 @@ def create_thumbnail(image_name):
     except IOError:
         print('create thumbnail error')
         pass
+
+@main.route('/download-image/<filename>/<size>')
+def download_image(filename, size):
+    size = size
+    print('download of image fetched {size}')
+    return send_from_directory(f'images/{USER_NAME}/{size}', filename = filename, as_attachment=True)
