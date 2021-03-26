@@ -18,6 +18,10 @@ def list_image_names(write_folder, user_name, image_size  ):
 
 @main.route('/')
 def index():
+    # try:
+    #     print(current_user.__dict__)
+    # except:
+    #     print('user not found')
     return render_template('index.html')
 
 @main.route('/profile')
@@ -58,7 +62,7 @@ def list_images():
 @main.route('/get_image/<filename>/<size>')
 def get_image(filename, size):
     size = size
-    print('fsize of image fetched {size}')
+    print(f'size of image fetched {size}')
     return send_from_directory(f'images/{USER_NAME}/{size}', filename = filename)
 
 @main.route('/get_image_sizes/<filename>')
@@ -68,11 +72,9 @@ def get_image_sizes(filename):
 
 def create_thumbnail(image_name):
     try:
-        # image = Image.open(f'{WRITE_FOLDER}/{USER_NAME}/original/{image_name}')
-        # image.thumbnail((30,30))
-        # image.save(f'{WRITE_FOLDER}/{USER_NAME}/small/{image_name}')
+        # SMALL
         write_thumbnail(image_name, 'small')
-        #medium
+        # MEDIUM
         write_thumbnail(image_name, 'medium')
         # LARGE
         write_thumbnail(image_name, 'large')
