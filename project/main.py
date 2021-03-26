@@ -68,17 +68,14 @@ def get_image_sizes(filename):
 
 def create_thumbnail(image_name):
     try:
-        image = Image.open(f'{WRITE_FOLDER}/{USER_NAME}/original/{image_name}')
-        image.thumbnail((30,30))
-        image.save(f'{WRITE_FOLDER}/{USER_NAME}/small/{image_name}')
-        # TODO : FUNCTION CALL , use something else instead of image.thumbnail
-        image = Image.open(f'{WRITE_FOLDER}/{USER_NAME}/original/{image_name}')
-        image.thumbnail((70,70))
-        image.save(f'{WRITE_FOLDER}/{USER_NAME}/medium/{image_name}')
+        # image = Image.open(f'{WRITE_FOLDER}/{USER_NAME}/original/{image_name}')
+        # image.thumbnail((30,30))
+        # image.save(f'{WRITE_FOLDER}/{USER_NAME}/small/{image_name}')
+        write_thumbnail(image_name, 'small')
+        #medium
+        write_thumbnail(image_name, 'medium')
         # LARGE
-        image = Image.open(f'{WRITE_FOLDER}/{USER_NAME}/original/{image_name}')
-        image.thumbnail((120,120))
-        image.save(f'{WRITE_FOLDER}/{USER_NAME}/large/{image_name}')
+        write_thumbnail(image_name, 'large')
 
     except IOError:
         print('create thumbnail error')
@@ -89,3 +86,14 @@ def download_image(filename, size):
     size = size
     print('download of image fetched {size}')
     return send_from_directory(f'images/{USER_NAME}/{size}', filename = filename, as_attachment=True)
+
+def write_thumbnail(image_name, size):
+    # TODO : FUNCTION CALL , use something else instead of image.thumbnail
+    sizes = {
+        'small' : [30,40],
+        'medium' : [70,70],
+        'large' : [120,120]
+    }
+    image = Image.open(f'{WRITE_FOLDER}/{USER_NAME}/original/{image_name}')
+    image.thumbnail((sizes[size][0], sizes[size][1]))
+    image.save(f'{WRITE_FOLDER}/{USER_NAME}/{size}/{image_name}')
