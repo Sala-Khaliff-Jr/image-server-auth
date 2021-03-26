@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+            <figure class="image is-square">
+                <img src="{{ url_for('main.get_image', filename=filename, size = 'small' ) }}">  
+            </figure>
+          </article>
+        </div>
+
+        <div class="tile is-parent">
+            <article class="tile is-child box">
+              <figure class="image is-square">
+                  <img src="{{ url_for('main.get_image', filename=filename, size = 'medium' ) }}">  
+              </figure>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box">
+              <figure class="image is-square">
+                  <img src="{{ url_for('main.get_image', filename=filename, size = 'large' ) }}">  
+              </figure>
+            </article>
+        </div>
+        
+{% endblock %}

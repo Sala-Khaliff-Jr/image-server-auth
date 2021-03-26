@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+      {% for filename in filenames %}
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+            <figure class="image is-square">
+              <a href="{{ url_for('main.get_image_sizes', filename=filename) }}">
+                <img src="{{ url_for('main.get_image', filename=filename, size = 'original' ) }}">
+              </a>
+              
+            </figure>
+          </article>
+        </div>
+
+      {% endfor %}
+        
+{% endblock %}
