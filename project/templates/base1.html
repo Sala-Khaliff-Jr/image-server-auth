@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Base page */
+
+    body {
+      margin: 0;
+    }
+
+    ul.topnav {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    ul.topnav li {
+      float: left;
+    }
+
+    ul.topnav li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    ul.topnav li a:hover:not(.active) {
+      background-color: #111;
+    }
+
+    ul.topnav li a.active {
+      background-color: #4CAF50;
+    }
+
+    ul.topnav li.right {
+      float: right;
+    }
+
+    @media screen and (max-width: 600px) {
+
+      ul.topnav li.right,
+      ul.topnav li {
+        float: none;
+      }
+    }
+
+    /*  Gallery */
+    div.gallery {
+      border: 1px solid #ccc;
+    }
+
+    div.gallery:hover {
+      border: 1px solid #777;
+    }
+
+    div.gallery img {
+      width: 100%;
+      height: auto;
+    }
+
+    div.desc {
+      padding: 15px;
+      text-align: center;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .responsive {
+      padding: 0 6px;
+      float: left;
+      width: 24.99999%;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+      }
+    }
+
+    @media only screen and (max-width: 500px) {
+      .responsive {
+        width: 100%;
+      }
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /*  Image response box*/
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial;
+    }
+
+    .header {
+      text-align: center;
+      padding: 32px;
+    }
+
+    .row {
+      display: -ms-flexbox;
+      /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap;
+      /* IE10 */
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+      -ms-flex: 25%;
+      /* IE10 */
+      flex: 25%;
+      max-width: 25%;
+      padding: 0 4px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2%;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+
+    /* download button */
+
+    .download-buttons button {
+      background-color: #4CAF50;
+      /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      width: 100%;
+      margin: 10px;
+    }
+
+    .download-buttons a,
+    a:hover,
+    a:focus,
+    a:active {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <ul class="topnav">
+    <li><a class="active" href="{{ url_for('main.index') }}">Home</a></li>
+
+    {% if current_user.is_authenticated %}
+    <li><a href="{{ url_for('main.list_images') }}">Gallery</a></li>
+
+
+    <li><a href="{{ url_for('main.profile') }}">Profile</a></li>
+    {% endif %}
+
+    {% if not current_user.is_authenticated %}
+    <li class="right"><a href="{{ url_for('auth.login') }}">Login</a></li>
+
+
+    <li class="right"><a href="{{ url_for('auth.signup') }}">Sign Up</a></li>
+    {% endif %}
+
+    {% if current_user.is_authenticated %}
+    <li class="right"><a href="{{ url_for('main.upload_image') }}">Upload</a></li>
+
+
+    <li class="right"><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+    {% endif %}
+  </ul>
+
+  {% block content %}
+  {% endblock %}
+
+</body>
+
+</html>

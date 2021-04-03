@@ -1,37 +1,42 @@
-{% extends "base.html" %}
+{% extends "base1.html" %}
 
 {% block content %}
 
-        <div class="tile is-parent is-5">
-          <article class="tile is-child box">
-            <figure class="image is-square">
-                <img src="{{ url_for('main.get_image', filename=filename, size = 'original' ) }}">  
-            </figure>
-          </article>
-        </div>
 
-        <div style="vertical-align: middle;">
-
-          <button class="button is-block is-info is-large" style="width: 200px;"> 
-            <a href="{{ url_for('main.download_image', filename=filename, size = 'small' ) }}">
-              Small 30x30
-            </a> 
-          </button>
-          
+<div class="row">
+  <div class="column">
+    <img src="{{ url_for('main.get_image', filename=filename, size = 'original' ) }}" style="width:100%">
+    <div class="download-buttons">
 
 
-          <button class="button is-block is-info is-large" style="width: 200px;" > 
-            <a href="{{ url_for('main.download_image', filename=filename, size = 'medium' ) }}">
-              Medium 70x70
-            </a> 
-          </button>
+      <button>
+        <a href="{{ url_for('main.download_image', filename=filename, size = 'small' ) }}">
+          Small 30x30
+        </a>
+      </button>
   
-          <button class="button is-block is-info is-large" style="width: 200px;" > 
-            <a href="{{ url_for('main.download_image', filename=filename, size = 'large' ) }}">
-              Large 120x120
-            </a> 
-          </button>
+  
+  
+      <button>
+        <a href="{{ url_for('main.download_image', filename=filename, size = 'medium' ) }}">
+          Medium 70x70
+        </a>
+      </button>
+  
+      <button>
+        <a href="{{ url_for('main.download_image', filename=filename, size = 'large' ) }}">
+          Large 120x120
+        </a>
+      </button>
+  
+    </div>
 
-        </div>
-                
+  </div>
+
+
+
+
+</div>
+
+
 {% endblock %}
