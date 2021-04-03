@@ -8,27 +8,31 @@
     <img src="{{ url_for('main.get_image', filename=filename, size = 'original' ) }}" style="width:100%">
     <div class="download-buttons">
 
+      <a href="{{ url_for('main.download_image', filename=filename, size = 'small' ) }}">
+      <button>
 
-      <button>
-        <a href="{{ url_for('main.download_image', filename=filename, size = 'small' ) }}">
-          Small 30x30
-        </a>
+        Small 30x30
+
       </button>
-  
-  
-  
-      <button>
-        <a href="{{ url_for('main.download_image', filename=filename, size = 'medium' ) }}">
+      </a>
+
+      <a href="{{ url_for('main.download_image', filename=filename, size = 'medium' ) }}">
+        <button>
+
           Medium 70x70
-        </a>
-      </button>
-  
-      <button>
-        <a href="{{ url_for('main.download_image', filename=filename, size = 'large' ) }}">
+
+        </button>
+      </a>
+
+      <a href="{{ url_for('main.download_image', filename=filename, size = 'large' ) }}">
+        <button>
+
           Large 120x120
-        </a>
-      </button>
-  
+
+        </button>
+      </a>
+
+
     </div>
 
   </div>
