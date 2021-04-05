@@ -45,6 +45,7 @@
   }
 
   /*  Gallery */
+
   div.gallery {
     border: 1px solid #ccc;
   }
@@ -581,4 +582,9 @@
   figure .shirt-2 {
     left: 52.5%;
     transform: skew(10deg) rotate(-15deg)
+  }
+
+  .empty{
+    align-items: center;
+    text-align: center;  
   }

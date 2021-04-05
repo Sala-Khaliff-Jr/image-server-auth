@@ -2,13 +2,14 @@
 
 {% block content %}
 
-<div class="column is-4 is-offset-4">
+<!-- <div class="column is-4 is-offset-4">
     <h3 class="title">Upload File</h3>
     <div class="box">
         <form method="POST" action="/upload" enctype="multipart/form-data">
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="file" 
+                    <input class="input is-large" 
+                        type="file" 
                         name="uploaded_file" 
                         placeholder="Select Your File" 
                         autofocus=""
@@ -20,6 +21,50 @@
         <button class="button is-block is-info is-large is-fullwidth">Upload</button>
         </form>
     </div>
+</div> -->
+
+<!-- New upload form -->
+
+<div class="signupform">
+    
+    <form method="POST" action="/upload" id="login-form" class="login-form"  role="main" enctype="multipart/form-data">
+        <h1 class="a11y-hidden">Fiile Upload Form</h1>
+        <!-- File Upload -->
+        <div>
+            <label class="label-email">
+                <input
+                    class="text" 
+                    name="uploaded_file"
+                    placeholder="Email" 
+                    tabindex="1" 
+                    type="file"
+                    accept="image/*"
+                    required 
+                />
+                <span class="required">Photo</span>
+            </label>
+        </div>
+
+        <!-- Upload Button -->
+        <input type="submit" value="Upload" />  
+
+        <!-- <figure aria-hidden="true">
+            <div class="person-body"></div>
+            <div class="neck skin"></div>
+            <div class="head skin">
+                <div class="eyes"></div>
+                <div class="mouth"></div>
+            </div>
+            <div class="hair"></div>
+            <div class="ears"></div>
+            <div class="shirt-1"></div>
+            <div class="shirt-2"></div>
+        </figure> -->
+
+        <i class="empty fas fa-file-image fa-10x"></i>
+    </form>
+
 </div>
+
 
 {% endblock %}

@@ -4,11 +4,24 @@
 
 <div class="row"> 
   <div class="column">
-    {% for filename in filenames %}
-    <a target="_blank" href="{{ url_for('main.get_image_sizes', filename=filename) }}">
-      <img src="{{ url_for('main.get_image', filename=filename, size = 'original' ) }}" style="width:100%">
-    </a>
-    {% endfor %}
+
+    {% if filenames is defined and filenames|length > 0 %}
+      {% for filename in filenames %}
+      <a target="_blank" href="{{ url_for('main.get_image_sizes', filename=filename) }}">
+        <img src="{{ url_for('main.get_image', filename=filename, size = 'original' ) }}" style="width:100%">
+      </a>
+      {% endfor %}
+    {% else %}  
+    <div class="empty">
+      No Images to show
+      <br>
+      <i class="empty fas fa-file-image fa-10x"></i>
+      <br>
+      Upload some images by clicking <a href="{{ url_for('main.upload_page') }}">here<a>
+    </div>
+    {% endif %}
+
+    
   </div> 
 </div>
                 
