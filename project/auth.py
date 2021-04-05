@@ -7,6 +7,13 @@ import os
 
 auth = Blueprint('auth', __name__)
 
+def create_size_folder(name, image_size):
+    """ returns a subfolder named string to create directory
+    >>> create_size_folder('john','small')
+    /projects/images/john/small
+    """
+    return  f'project/images/{name}/{image_size}'
+
 @auth.route('/login')
 def login():
     return render_template('login.html')
@@ -74,12 +81,8 @@ def signup_post():
         os.makedirs(create_size_folder(name, 'small'))
         os.makedirs(create_size_folder(name, 'medium'))
         os.makedirs(create_size_folder(name, 'large'))
-
     else:
         flash('Email Already Exists!!')
         return redirect(url_for('auth.signup'))
-
     return redirect(url_for('auth.login'))
 
-def create_size_folder(name, image_size):
-    return  f'project/images/{name}/{image_size}'
