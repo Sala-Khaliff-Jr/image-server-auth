@@ -86,5 +86,3 @@ def signup_post():
         flash('Email Already Exists!!')
         return redirect(url_for('auth.signup'))
     return redirect(url_for('auth.login'))
-
-1
