@@ -36,16 +36,19 @@
 </div> -->
 
 <div class="signupform">
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="notification is-danger">
-                {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
-            </div>
-        {% endif %}
-    {% endwith %}
+   
 
     <form method="POST" action="/signup" id="login-form" class="login-form" autocomplete="off" role="main">
-        <h1 class="a11y-hidden">Login Form</h1>
+        <h1 class="a11y-hidden">Sign Up Form</h1>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification is-danger">
+                    {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+                </div>
+            {% endif %}
+        {% endwith %}
+
         <!-- Email -->
         <div>
             <label class="label-email">
@@ -71,10 +74,8 @@
                 <span class="required">Password</span>
             </label>
         </div>
-        <input type="submit" value="Log In" />
-        <div class="email">
-            <a href="#">Forgot password?</a>
-        </div>
+        <input type="submit" value="Sign Up" />
+
         <figure aria-hidden="true">
             <div class="person-body"></div>
             <div class="neck skin"></div>
