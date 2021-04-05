@@ -7,9 +7,6 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-
-    app.add_url_rule('/project/images/', endpoint='writefolder',view_func=app.send_static_file)
-
     app.config['SECRET_KEY'] = 'password'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

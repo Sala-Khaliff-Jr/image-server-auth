@@ -1,36 +1,64 @@
-{% extends "base.html" %}
+{% extends "base1.html" %}
 
 {% block content %}
-<div class="column is-4 is-offset-4">
-    <h3 class="title">Login</h3>
-    <div class="box">
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="notification is-danger">
-                    {{ messages[0] }}
-                </div>
-            {% endif %}
-        {% endwith %}
-            <form method="POST" action="/login">
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
-                </div>
-            </div>
+<!-- new login page -->
 
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="Your Password">
-                </div>
+<div class="signupform">
+
+    <form method="POST" action="/login" id="login-form" class="login-form" autocomplete="off" role="main">
+        <h1 class="a11y-hidden">Login Form</h1>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Email -->
+        <div>
+            <label class="label-email">
+                <input type="email" class="text" name="email" placeholder="Email" tabindex="1" required />
+                <span class="required">Email</span>
+            </label>
+        </div>
+
+        <input type="checkbox" name="show-password" class="show-password a11y-hidden" id="show-password" tabindex="3" />
+        <label class="label-show-password" for="show-password">
+            <span>Show Password</span>
+        </label>
+        <div>
+            <label class="label-password">
+                <input type="text" class="text" name="password" placeholder="Password" tabindex="2" required />
+                <span class="required">Password</span>
+            </label>
+        </div>
+
+        <input type="checkbox" name="remember-me" class="show-password a11y-hidden" id="remember-me" tabindex="3" />
+        <label class="label-show-password" for="remember-me">
+            <span>Remember Me</span>
+        </label>
+
+        <input type="submit" value="Log In" />
+
+        <figure aria-hidden="true">
+            <div class="person-body"></div>
+            <div class="neck skin"></div>
+            <div class="head skin">
+                <div class="eyes"></div>
+                <div class="mouth"></div>
             </div>
-            <div class="field">
-                <label class="checkbox">
-                    <input type="checkbox">
-                    Remember me
-                </label>
-            </div>
-            <button class="button is-block is-info is-large is-fullwidth">Login</button>
-        </form>
-    </div>
+            <div class="hair"></div>
+            <div class="ears"></div>
+            <div class="shirt-1"></div>
+            <div class="shirt-2"></div>
+        </figure>
+    </form>
+
 </div>
+
 {% endblock %}
+
+<!-- Code Pen Reference -->
+<!-- https://codepen.io/alvaromontoro/pen/JjoWVmx -->

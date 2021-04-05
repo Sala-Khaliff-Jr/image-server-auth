@@ -1,25 +1,25 @@
-{% extends "base.html" %}
+{% extends "base1.html" %}
 
 {% block content %}
 
-    <div class="column is-4 is-offset-4">
-        <h3 class="title">Upload File</h3>
-        <div class="box">
-                <form method="POST" action="/upload" enctype="multipart/form-data">
-                <div class="field">
-                    <div class="control">
-                        <input class="input is-large" type="file" 
-                            name="uploaded_file" 
-                            placeholder="Select Your File" 
-                            autofocus=""
-                            accept="image/*"
-                        >
-                    </div>
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Upload File</h3>
+    <div class="box">
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="file" 
+                        name="uploaded_file" 
+                        placeholder="Select Your File" 
+                        autofocus=""
+                        accept="image/*"
+                        required
+                    >
                 </div>
-
-                <button class="button is-block is-info is-large is-fullwidth">Upload</button>
-            </form>
-        </div>
+            </div>
+        <button class="button is-block is-info is-large is-fullwidth">Upload</button>
+        </form>
     </div>
+</div>
 
 {% endblock %}

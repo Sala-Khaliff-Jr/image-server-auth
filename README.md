@@ -26,5 +26,12 @@ and then navigate to localhost:5000
 * login with the username and id created
 * goto uploads and select image to upload
 * navigate to gallery to view the uploaded images
-
 *known issues are listed in issues tab*
+
+# References
+
+[Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/)
+
+[Flask Authentication - Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login)
+
+[Python pillow PIL Fork](https://pillow.readthedocs.io/en/stable/)

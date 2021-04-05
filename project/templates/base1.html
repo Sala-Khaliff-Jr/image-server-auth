@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+
+</head>
+
+<body>
+
+  <ul class="topnav">
+    <li><a class="active" href="{{ url_for('main.index') }}">Home</a></li>
+
+    {% if current_user.is_authenticated %}
+    <li><a href="{{ url_for('main.list_images') }}">Gallery</a></li>
+
+
+    <li><a href="{{ url_for('main.profile') }}">Profile</a></li>
+    {% endif %}
+
+    {% if not current_user.is_authenticated %}
+    <li class="right"><a href="{{ url_for('auth.login') }}">Login</a></li>
+
+
+    <li class="right"><a href="{{ url_for('auth.signup') }}">Sign Up</a></li>
+    {% endif %}
+
+    {% if current_user.is_authenticated %}
+    <li class="right"><a href="{{ url_for('main.upload_image') }}">Upload</a></li>
+
+
+    <li class="right"><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+    {% endif %}
+  </ul>
+
+  {% block content %}
+  {% endblock %}
+
+</body>
+
+</html>
