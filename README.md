@@ -21,3 +21,11 @@ To run the Flask Server
 `flask run`
 
 and then navigate to localhost:5000
+
+# References
+
+[Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/)
+
+[Flask Authentication - Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login)
+
+[Python pillow PIL Fork](https://pillow.readthedocs.io/en/stable/)
