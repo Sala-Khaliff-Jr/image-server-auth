@@ -2,3 +2,4 @@ __pycache__/
 *.sqlite
 *.pyc
 project/images/*
+TODO.md
