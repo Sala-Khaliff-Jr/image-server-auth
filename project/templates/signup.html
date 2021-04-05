@@ -36,15 +36,31 @@
 </div> -->
 
 <div class="signupform">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+            </div>
+        {% endif %}
+    {% endwith %}
 
     <form method="POST" action="/signup" id="login-form" class="login-form" autocomplete="off" role="main">
         <h1 class="a11y-hidden">Login Form</h1>
+        <!-- Email -->
         <div>
             <label class="label-email">
                 <input type="email" class="text" name="email" placeholder="Email" tabindex="1" required />
                 <span class="required">Email</span>
             </label>
         </div>
+        <!-- User Name -->
+        <div>
+            <label class="label-email">
+                <input type="text" class="text" name="name" placeholder="John Doe" tabindex="1" required />
+                <span class="required">User Name</span>
+            </label>
+        </div>
+
         <input type="checkbox" name="show-password" class="show-password a11y-hidden" id="show-password" tabindex="3" />
         <label class="label-show-password" for="show-password">
             <span>Show Password</span>
