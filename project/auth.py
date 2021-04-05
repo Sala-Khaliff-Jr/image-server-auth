@@ -14,6 +14,7 @@ def create_size_folder(name, image_size):
     """
     return  f'project/images/{name}/{image_size}'
 
+# PAGE ROUTES
 @auth.route('/login')
 def login():
     return render_template('login.html')
