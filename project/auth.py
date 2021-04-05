@@ -87,3 +87,4 @@ def signup_post():
         return redirect(url_for('auth.signup'))
     return redirect(url_for('auth.login'))
 
+1
